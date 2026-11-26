@@ -17,11 +17,11 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
   points,
 }) => {
   const width = 640;
-  const height = 240;
-  const padLeft = 46;
+  const height = 236;
+  const padLeft = 48;
   const padRight = 18;
-  const padTop = 20;
-  const padBottom = 42;
+  const padTop = 18;
+  const padBottom = 38;
   const plotW = width - padLeft - padRight;
   const plotH = height - padTop - padBottom;
 
@@ -39,11 +39,17 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
     padTop + plotH - ((val - yMin) / ySpan) * plotH;
 
   const primaryPath = points
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${toX(i).toFixed(1)} ${toY(p.primaryMetric).toFixed(1)}`)
+    .map(
+      (p, i) =>
+        `${i === 0 ? 'M' : 'L'} ${toX(i).toFixed(1)} ${toY(p.primaryMetric).toFixed(1)}`
+    )
     .join(' ');
 
   const secondaryPath = points
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${toX(i).toFixed(1)} ${toY(p.secondaryMetric).toFixed(1)}`)
+    .map(
+      (p, i) =>
+        `${i === 0 ? 'M' : 'L'} ${toX(i).toFixed(1)} ${toY(p.secondaryMetric).toFixed(1)}`
+    )
     .join(' ');
 
   const yTicks = [yMin, Math.round(yMin + ySpan * 0.5), yMax];
@@ -63,7 +69,7 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
         <div>
           <h2 className="card-title">{title}</h2>
           <p className="card-subtitle">
-            {points.length} deterministic rounds; vertical crimson markers indicate flash-crash or cascade shocks
+            Crimson verticals mark cascade shocks across {points.length} rounds.
           </p>
         </div>
         <div className="chart-legend" aria-label="Trajectory legend">
@@ -77,7 +83,7 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
           </span>
           <span className="legend-item">
             <span className="swatch swatch-human" />
-            Human Ref ({humanLine})
+            Human ({humanLine})
           </span>
         </div>
       </div>
@@ -90,7 +96,6 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
           role="img"
           aria-label={title}
         >
-          {/* Y grid */}
           {yTicks.map((t) => {
             const y = toY(t);
             return (
@@ -100,16 +105,16 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
                   y1={y}
                   x2={width - padRight}
                   y2={y}
-                  stroke="#e5e3db"
+                  stroke="#e5e5e3"
                   strokeWidth="1"
                 />
                 <text
                   x={padLeft - 8}
                   y={y + 4}
                   textAnchor="end"
-                  fontSize="11"
-                  fill="#5a626a"
-                  fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+                  fontSize="12"
+                  fill="#555555"
+                  fontFamily='"JetBrains Mono", monospace'
                 >
                   {t}
                 </text>
@@ -117,7 +122,6 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
             );
           })}
 
-          {/* Flash crash shock bars */}
           {points.map((p, i) =>
             p.flashCrash ? (
               <line
@@ -126,34 +130,31 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
                 y1={padTop}
                 x2={toX(i)}
                 y2={padTop + plotH}
-                stroke="#dc2626"
-                strokeOpacity="0.24"
+                stroke="#b91c1c"
+                strokeOpacity="0.22"
                 strokeWidth="3"
               />
             ) : null
           )}
 
-          {/* Human reference line */}
           <line
             x1={padLeft}
             y1={humanY}
             x2={width - padRight}
             y2={humanY}
-            stroke="#0f766e"
+            stroke="#047857"
             strokeWidth="1.6"
             strokeDasharray="5 4"
           />
 
-          {/* Secondary series */}
           <path
             d={secondaryPath}
             fill="none"
             stroke="#b45309"
             strokeWidth="1.8"
-            strokeOpacity="0.8"
+            strokeOpacity="0.82"
           />
 
-          {/* Primary series */}
           <path
             d={primaryPath}
             fill="none"
@@ -161,37 +162,27 @@ export const TrajectoryChart: React.FC<TrajectoryChartProps> = ({
             strokeWidth="2.2"
           />
 
-          {/* X axis */}
           <line
             x1={padLeft}
             y1={padTop + plotH}
             x2={width - padRight}
             y2={padTop + plotH}
-            stroke="#94a3b8"
+            stroke="#d4d4d0"
             strokeWidth="1.2"
           />
           {xTickIndices.map((idx) => (
             <text
               key={`x-${idx}`}
               x={toX(idx)}
-              y={padTop + plotH + 18}
+              y={padTop + plotH + 20}
               textAnchor="middle"
-              fontSize="10.5"
-              fill="#475569"
-              fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+              fontSize="12"
+              fill="#555555"
+              fontFamily='"JetBrains Mono", monospace'
             >
               R{points[idx]?.round ?? idx + 1}
             </text>
           ))}
-          <text
-            x={padLeft + plotW / 2}
-            y={height - 6}
-            textAnchor="middle"
-            fontSize="11"
-            fill="#64748b"
-          >
-            Simulation Round
-          </text>
         </svg>
       </div>
     </section>
