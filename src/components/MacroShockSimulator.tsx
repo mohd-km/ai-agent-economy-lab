@@ -34,9 +34,9 @@ export function MacroShockSimulator({
     <section className="panel shock-panel" aria-label="Live Macro Shock Simulator">
       <div className="panel-header">
         <div>
-          <h2 className="panel-title">Live Macro Shock Simulator</h2>
+          <h2 className="panel-title">What if the world changes? (shock simulator)</h2>
           <p className="panel-subtitle">
-            Dial crude oil, policy rates, or maritime chokepoint delays to stress-test margins and global profit pools live.
+            Move oil prices, interest rates or shipping delays, or pick a real past event, and see which industries gain or lose profit.
           </p>
         </div>
         <div className="shock-header-actions">
@@ -46,7 +46,7 @@ export function MacroShockSimulator({
             onClick={() => onChangeParams(BASELINE_SHOCK)}
             disabled={isBaseline}
           >
-            Reset Baseline
+            Back to normal
           </button>
           <button type="button" className="btn-primary" onClick={onExportCsv}>
             Export CSV
@@ -79,9 +79,12 @@ export function MacroShockSimulator({
       <div className="sliders-grid">
         <label className="slider-card">
           <div className="slider-top">
-            <span className="slider-name">Crude Oil Price</span>
-            <span className="slider-val mono">${params.oilPriceUsd}/bbl</span>
+            <span className="slider-name">Crude oil price</span>
+            <span className="slider-val mono">${params.oilPriceUsd}/barrel</span>
           </div>
+          <span className="slider-help">
+            Simulates an oil price jump or crash. Watch Energy &amp; Mining gain while Transport, Chemicals and Agriculture, which burn fuel, lose.
+          </span>
           <input
             type="range"
             min={40}
@@ -94,16 +97,19 @@ export function MacroShockSimulator({
           />
           <div className="slider-scale mono">
             <span>$40</span>
-            <span>Base $75</span>
+            <span>Normal $75</span>
             <span>$160</span>
           </div>
         </label>
 
         <label className="slider-card">
           <div className="slider-top">
-            <span className="slider-name">Policy Interest Rate</span>
+            <span className="slider-name">Central bank interest rate</span>
             <span className="slider-val mono">{params.policyRatePct.toFixed(2)}%</span>
           </div>
+          <span className="slider-help">
+            Simulates borrowing getting dearer or cheaper. Watch Real Estate, which runs on loans, drop while banks earn more on lending. Above 7%, unpaid loans start eating into those bank gains.
+          </span>
           <input
             type="range"
             min={0.5}
@@ -116,16 +122,19 @@ export function MacroShockSimulator({
           />
           <div className="slider-scale mono">
             <span>0.5%</span>
-            <span>Base 4.5%</span>
+            <span>Normal 4.5%</span>
             <span>10.0%</span>
           </div>
         </label>
 
         <label className="slider-card">
           <div className="slider-top">
-            <span className="slider-name">Shipping Chokepoint Delay</span>
+            <span className="slider-name">Extra shipping days (blocked sea routes)</span>
             <span className="slider-val mono">+{params.shippingDelayDays} days</span>
           </div>
+          <span className="slider-help">
+            Simulates ships forced the long way round, like the Red Sea detour around Africa. Watch Retail and Transport squeeze and the $100 shelf price below creep up.
+          </span>
           <input
             type="range"
             min={0}
@@ -138,7 +147,7 @@ export function MacroShockSimulator({
           />
           <div className="slider-scale mono">
             <span>0d</span>
-            <span>Cape Detour +16d</span>
+            <span>Africa detour +16d</span>
             <span>+30d</span>
           </div>
         </label>
@@ -149,8 +158,8 @@ export function MacroShockSimulator({
         {/* Diverging Tornado Chart */}
         <div className="subpanel">
           <div className="subhead-row">
-            <h3 className="subhead">Sector EBITDA Margin Shift (pp)</h3>
-            <span className="caption-note">Click any bar to inspect sector</span>
+            <h3 className="subhead">Who wins, who loses: change in operating profit margin (pp)</h3>
+            <span className="caption-note">Green: keeps more profit per $100 of sales. Red: keeps less. Click a bar to inspect.</span>
           </div>
 
           <div className="tornado-list">
@@ -197,9 +206,9 @@ export function MacroShockSimulator({
         {/* Live Supply-Chain Markup Stack & Fleet Math */}
         <div className="subpanel">
           <div className="subhead-row">
-            <h3 className="subhead">Supply-Chain Markup Stack ($10 &rarr; $100)</h3>
+            <h3 className="subhead">How $10 of raw material becomes a $100 product (markup stack)</h3>
             <span className="caption-note mono">
-              Live shelf index: ${summary.shelfPriceIndex.toFixed(1)} (base $100)
+              Shop price now: ${summary.shelfPriceIndex.toFixed(1)} (normally $100)
             </span>
           </div>
 
@@ -232,15 +241,15 @@ export function MacroShockSimulator({
 
           <div className="fleet-kpi-strip">
             <div>
-              <span className="metric-label">Avg Sea Haul (UNCTAD)</span>
+              <span className="metric-label">Average sea trip (nautical miles, UN data)</span>
               <strong className="mono">{summary.averageSeaHaulNm.toLocaleString()} nm</strong>
             </div>
             <div>
-              <span className="metric-label">Fleet Capacity Squeeze</span>
+              <span className="metric-label">Extra ships needed for same cargo</span>
               <strong className="mono">+{summary.fleetCapacitySqueezePct.toFixed(1)}%</strong>
             </div>
             <div>
-              <span className="metric-label">Global Profit Delta</span>
+              <span className="metric-label">Change in world profit a year</span>
               <strong
                 className={`mono ${
                   summary.profitPoolDeltaB > 5
@@ -250,7 +259,7 @@ export function MacroShockSimulator({
                       : ''
                 }`}
               >
-                {summary.profitPoolDeltaB >= 0 ? '+' : ''}${summary.profitPoolDeltaB.toFixed(0)}B
+                {summary.profitPoolDeltaB >= 0 ? '+' : '-'}${Math.abs(summary.profitPoolDeltaB).toFixed(0)}B
               </strong>
             </div>
           </div>

@@ -87,11 +87,11 @@ export function TreemapExplorer({
         <div>
           <h2 className="panel-title">
             {sizeMode === 'gdp'
-              ? `$${GLOBAL_GDP_BASELINE_T.toFixed(0)}T Global GDP Treemap`
-              : `$${totalRevenueT.toFixed(1)}T Gross Industry Revenue Map`}
+              ? `The $${GLOBAL_GDP_BASELINE_T.toFixed(0)}T world economy, by industry`
+              : `$${totalRevenueT.toFixed(1)}T of total industry sales, by industry`}
           </h2>
           <p className="panel-subtitle">
-            Click any sector tile to inspect its margins, capital intensity, leaders, and value chain.
+            Bigger box, bigger industry. Click any box to see how much profit it keeps, how much equipment it needs, its biggest companies and the steps from raw material to customer.
           </p>
         </div>
         <div className="control-bar">
@@ -101,14 +101,14 @@ export function TreemapExplorer({
               className={sizeMode === 'gdp' ? 'seg-btn active' : 'seg-btn'}
               onClick={() => onSizeModeChange('gdp')}
             >
-              GDP ($110T)
+              Size by output (GDP)
             </button>
             <button
               type="button"
               className={sizeMode === 'revenue' ? 'seg-btn active' : 'seg-btn'}
               onClick={() => onSizeModeChange('revenue')}
             >
-              Revenue (${totalRevenueT.toFixed(0)}T)
+              Size by sales (${totalRevenueT.toFixed(0)}T)
             </button>
           </div>
 
@@ -118,21 +118,21 @@ export function TreemapExplorer({
               className={colorMode === 'shock' ? 'seg-btn active' : 'seg-btn'}
               onClick={() => onColorModeChange('shock')}
             >
-              Shock Delta
+              Colour by shock impact
             </button>
             <button
               type="button"
               className={colorMode === 'ebitda' ? 'seg-btn active' : 'seg-btn'}
               onClick={() => onColorModeChange('ebitda')}
             >
-              EBITDA %
+              Colour by operating profit (EBITDA %)
             </button>
             <button
               type="button"
               className={colorMode === 'category' ? 'seg-btn active' : 'seg-btn'}
               onClick={() => onColorModeChange('category')}
             >
-              Category
+              Colour by type
             </button>
           </div>
         </div>
@@ -278,26 +278,26 @@ export function TreemapExplorer({
         {colorMode === 'shock' && (
           <>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#0f5c5c' }} /> Margin Gain (&gt;+1.5pp)
+              <i className="swatch" style={{ background: '#0f5c5c' }} /> Big profit gain (over +1.5 pts)
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#cde3e3' }} /> Mild Gain
+              <i className="swatch" style={{ background: '#cde3e3' }} /> Small gain
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#f4f4f2' }} /> Neutral
+              <i className="swatch" style={{ background: '#f4f4f2' }} /> Little change
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#f6ddd4' }} /> Margin Squeeze
+              <i className="swatch" style={{ background: '#f6ddd4' }} /> Profit squeezed
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#9a3412' }} /> Severe Squeeze (&lt;-2.0pp)
+              <i className="swatch" style={{ background: '#9a3412' }} /> Badly squeezed (below -2 pts)
             </span>
           </>
         )}
         {colorMode === 'ebitda' && (
           <>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#0f5c5c' }} /> High EBITDA (&ge;24%)
+              <i className="swatch" style={{ background: '#0f5c5c' }} /> High (24% or more)
             </span>
             <span className="legend-item">
               <i className="swatch" style={{ background: '#3b7e7e' }} /> Strong (18–24%)
@@ -306,24 +306,27 @@ export function TreemapExplorer({
               <i className="swatch" style={{ background: '#b9d6d6' }} /> Moderate (14–18%)
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#efefec' }} /> Thin (&lt;14%)
+              <i className="swatch" style={{ background: '#efefec' }} /> Thin (under 14%)
             </span>
           </>
         )}
         {colorMode === 'category' && (
           <>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#e6f0f0' }} /> Services (~64% GDP)
+              <i className="swatch" style={{ background: '#e6f0f0' }} /> Services (~64% of world output)
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#f3f2ee' }} /> Industry &amp; Construction (~32%)
+              <i className="swatch" style={{ background: '#f3f2ee' }} /> Industry &amp; construction (~32%)
             </span>
             <span className="legend-item">
-              <i className="swatch" style={{ background: '#e4e8e1' }} /> Primary &amp; Agriculture (~4%)
+              <i className="swatch" style={{ background: '#e4e8e1' }} /> Farming &amp; mining (~4%)
             </span>
           </>
         )}
       </div>
+      <p className="plain-note">
+        <strong>EBITDA margin:</strong> of every $100 of sales, the share left as operating profit before interest, tax and wear on equipment. <strong>Net:</strong> what is left after everything. <strong>pp (points):</strong> a change in margin, so +1pp means $1 more profit kept per $100 of sales.
+      </p>
     </section>
   );
 }

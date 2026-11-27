@@ -34,25 +34,28 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
           <p className="panel-subtitle">{sector.summary}</p>
         </div>
         <div className="capital-badge">
-          <span className="metric-label">Capital Intensity</span>
+          <span className="metric-label">Equipment needed (capital intensity)</span>
           <strong className="mono">{sector.capitalIntensity}</strong>
         </div>
       </div>
+      <p className="plain-note">
+        <strong>Capital intensity</strong> means how much must be spent on equipment, buildings, mines or data centres for every dollar of sales. &quot;Very High&quot; industries (power, mining, shipping, property) must keep spending heavily before they earn anything.
+      </p>
 
       {/* 4 Core Financial Metrics */}
       <div className="metric-grid">
         <div className="metric-box">
-          <span className="metric-label">Gross Revenue / GDP VA</span>
+          <span className="metric-label">Yearly sales / share of world output</span>
           <div className="metric-val mono">
             ${(sector.grossRevenueB / 1000).toFixed(2)}T
           </div>
           <span className="metric-note mono">
-            ${sector.gdpValueAddedT.toFixed(1)}T GDP ({((sector.gdpValueAddedT / 110) * 100).toFixed(1)}%)
+            ${sector.gdpValueAddedT.toFixed(1)}T of GDP ({((sector.gdpValueAddedT / 110) * 100).toFixed(1)}%)
           </span>
         </div>
 
         <div className="metric-box">
-          <span className="metric-label">EBITDA Margin</span>
+          <span className="metric-label">Operating profit (EBITDA margin)</span>
           <div className="metric-val mono">
             {result.shockedEbitdaPct.toFixed(1)}%
             {hasActiveShock && (
@@ -63,31 +66,31 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
             )}
           </div>
           <span className="metric-note mono">
-            Base {sector.ebitdaPct.toFixed(1)}% | EBIT {sector.ebitPct.toFixed(1)}%
+            Normal {sector.ebitdaPct.toFixed(1)}% | after equipment wear (EBIT) {sector.ebitPct.toFixed(1)}%
           </span>
         </div>
 
         <div className="metric-box">
-          <span className="metric-label">Net Margin &amp; Profit Pool</span>
+          <span className="metric-label">Final profit (net margin) &amp; total profit</span>
           <div className="metric-val mono">{result.shockedNetMarginPct.toFixed(1)}%</div>
           <span className="metric-note mono">
             ${(result.shockedProfitB / 1000).toFixed(2)}T{' '}
             {hasActiveShock && (
               <span className={deltaClass}>
-                ({result.profitDeltaB >= 0 ? '+' : ''}${result.profitDeltaB.toFixed(0)}B)
+                ({result.profitDeltaB >= 0 ? '+' : '-'}${Math.abs(result.profitDeltaB).toFixed(0)}B)
               </span>
             )}
           </span>
         </div>
 
         <div className="metric-box">
-          <span className="metric-label">Pricing Power (Val - Vol)</span>
+          <span className="metric-label">Pricing power (sales growth minus volume growth)</span>
           <div className="metric-val mono">
             {pricingPowerPp >= 0 ? '+' : ''}
             {pricingPowerPp.toFixed(1)}pp
           </div>
           <span className="metric-note mono">
-            Val +{sector.valueGrowthPct.toFixed(1)}% vs Vol +{sector.volumeGrowthPct.toFixed(1)}%
+            Sales +{sector.valueGrowthPct.toFixed(1)}% vs units sold +{sector.volumeGrowthPct.toFixed(1)}% a year. A bigger gap means it can raise prices.
           </span>
         </div>
       </div>
@@ -95,8 +98,8 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
       {/* Visual 5-Stage Value Chain */}
       <div className="value-chain-block">
         <div className="subhead-row">
-          <h3 className="subhead">Major Value-Chain Stages</h3>
-          <span className="caption-note">Share of final value &amp; typical stage margin</span>
+          <h3 className="subhead">From raw material to customer (value chain)</h3>
+          <span className="caption-note">Each step&apos;s share of the final price, and the profit it keeps</span>
         </div>
 
         {/* Stacked proportional bar */}
@@ -127,11 +130,11 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
             <div key={stage.stage} className="vc-stage-card">
               <div className="vc-stage-top">
                 <span className="vc-step mono">0{idx + 1}</span>
-                <span className="vc-margin mono">{stage.stageMarginPct}% net</span>
+                <span className="vc-margin mono">{stage.stageMarginPct}% profit</span>
               </div>
               <div className="vc-stage-name">{stage.stage}</div>
               <div className="vc-stage-role">{stage.role}</div>
-              <div className="vc-stage-bottleneck">Bottleneck: {stage.bottleneck}</div>
+              <div className="vc-stage-bottleneck">Weak point: {stage.bottleneck}</div>
             </div>
           ))}
         </div>
@@ -140,8 +143,8 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
       {/* Subsector Breakdown + Verified Top 3 Leaders */}
       <div className="subsector-section">
         <div className="subhead-row">
-          <h3 className="subhead">Subsector Benchmarks ({sector.subsectors.length})</h3>
-          <span className="caption-note">Select a subsector to inspect its Top 3 leaders</span>
+          <h3 className="subhead">Industries inside this sector ({sector.subsectors.length})</h3>
+          <span className="caption-note">Pick one to see where each $100 of sales goes and its 3 biggest companies</span>
         </div>
 
         <div className="subsector-pills">
@@ -168,7 +171,7 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
                   {activeSub.code} {activeSub.name}
                 </strong>
                 <span className="mono">
-                  COGS {activeSub.cogsPct}% | OpEx {activeSub.opexPct}% | Other {activeSub.otherPct}% | Net{' '}
+                  Making it (COGS) {activeSub.cogsPct}% | Running costs (OpEx) {activeSub.opexPct}% | Interest, tax &amp; equipment {activeSub.otherPct}% | Kept as profit{' '}
                   {activeSub.netMarginPct}%
                 </span>
               </div>
@@ -181,7 +184,7 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
                 <div
                   className="cost-seg opex"
                   style={{ width: `${activeSub.opexPct}%` }}
-                  title={`OpEx: ${activeSub.opexPct}%`}
+                  title={`Running costs (OpEx): ${activeSub.opexPct}%`}
                 />
                 <div
                   className="cost-seg other"
@@ -198,10 +201,10 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
 
             <div className="leaders-list">
               <div className="leaders-head">
-                <span>Top 3 Leaders</span>
-                <span>Revenue</span>
-                <span>Gross %</span>
-                <span>Net % vs Sector</span>
+                <span>3 biggest companies</span>
+                <span>Yearly sales</span>
+                <span>Left after making it (gross %)</span>
+                <span>Final profit % vs industry</span>
               </div>
               {activeSub.topLeaders.map((co) => {
                 const spread = Number((co.netMarginPct - activeSub.netMarginPct).toFixed(1));
@@ -209,7 +212,7 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
                   <div key={co.name} className="leader-row">
                     <span className="leader-name">
                       {co.name}
-                      {co.verifiedFY25 && <span className="verified-tag">FY25</span>}
+                      {co.verifiedFY25 && <span className="verified-tag" title="Checked against the company's 2025 financial year report">FY25</span>}
                     </span>
                     <span className="mono">${co.revenueB.toFixed(1)}B</span>
                     <span className="mono">{co.grossMarginPct.toFixed(1)}%</span>
@@ -229,8 +232,8 @@ export function SectorInspector({ result, hasActiveShock }: SectorInspectorProps
       </div>
 
       <p className="asset-note">
-        <strong>Asset base:</strong> {sector.assetLifespanNote}. Financing &amp; capex drag:{' '}
-        <span className="mono">{sector.financingCapexPct.toFixed(1)}%</span> of revenue.
+        <strong>What it owns:</strong> {sector.assetLifespanNote}. Interest, leases and new equipment eat{' '}
+        <span className="mono">{sector.financingCapexPct.toFixed(1)}%</span> of sales.
       </p>
     </section>
   );

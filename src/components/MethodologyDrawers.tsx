@@ -4,10 +4,10 @@ export function MethodologyDrawers() {
   return (
     <section className="drawers-section" aria-label="Reference Tables and Methodology">
       <details className="editorial-drawer">
-        <summary>National Economy Shapes: United States ($31.5T) vs. China ($19.5T) vs. India ($4.0T)</summary>
+        <summary>How three economies differ: United States ($31.5T) vs. China ($19.5T) vs. India ($4.0T)</summary>
         <div className="drawer-body">
           <p className="drawer-lead">
-            Every sector decomposes into physical or economic units multiplied by value added per unit. The US is 83% services, China is 36% industrial manufacturing, and India is services-led (55%) with an 18% primary agricultural base.
+            Each country&apos;s output is just units made times the value added to each one. The US is 83% services, China is 36% factories, and India is mostly services (55%) with 18% still in farming and mining.
           </p>
           <div className="country-grid">
             {COUNTRY_PROFILES.map((c) => (
@@ -22,9 +22,9 @@ export function MethodologyDrawers() {
                   <div style={{ width: `${c.primaryPct}%` }} className="split-pri" title={`Primary ${c.primaryPct}%`} />
                 </div>
                 <div className="split-legend mono">
-                  <span>Svc {c.tertiaryPct}%</span>
-                  <span>Ind {c.secondaryPct}%</span>
-                  <span>Pri {c.primaryPct}%</span>
+                  <span>Services {c.tertiaryPct}%</span>
+                  <span>Industry {c.secondaryPct}%</span>
+                  <span>Farm &amp; mine {c.primaryPct}%</span>
                 </div>
                 <ul className="country-list">
                   {c.topSectors.map((s) => (
@@ -43,23 +43,23 @@ export function MethodologyDrawers() {
       </details>
 
       <details className="editorial-drawer">
-        <summary>Global Freight Modes &amp; Trade-Lane Economics (~$10.6T Gross Revenue)</summary>
+        <summary>How goods move: ship, truck, train and plane compared (~$10.6T of sales)</summary>
         <div className="drawer-body">
           <p className="drawer-lead">
-            Freight yield spans ~100x from ocean ($0.02/tkm) to air cargo ($0.50–$2.31/tkm). Road dominates tonnes and revenue ($4.8T), while sea carries ~90–120T tonne-km (UNCTAD 2025 average haul rose to 5,245 nm under Red Sea rerouting).
+            A tonne-km (tkm) is one tonne carried one kilometre. Moving it by sea costs about $0.02, by air $0.50 to $2.31, roughly 100 times more. Trucks earn the most ($4.8T), while ships do most of the distance. UN shipping data (UNCTAD 2025) shows the average sea trip grew to 5,245 nautical miles when ships avoided the Red Sea.
           </p>
           <div className="table-scroll">
             <table className="data-table">
               <thead>
                 <tr>
                   <th>Mode</th>
-                  <th>Volume</th>
-                  <th>Avg Haul</th>
+                  <th>Tonnes moved</th>
+                  <th>Average trip</th>
                   <th>Tonne-km</th>
-                  <th>Yield / tkm</th>
-                  <th>Market</th>
-                  <th>Direct Cost</th>
-                  <th>Net %</th>
+                  <th>Price per tkm</th>
+                  <th>Yearly sales</th>
+                  <th>Direct costs</th>
+                  <th>Profit kept</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,28 +82,28 @@ export function MethodologyDrawers() {
       </details>
 
       <details className="editorial-drawer">
-        <summary>Governing Equations, Margin Definitions &amp; Research Provenance</summary>
+        <summary>The maths behind the numbers, and where the data comes from</summary>
         <div className="drawer-body">
           <div className="equations-grid">
             <div className="eq-box">
-              <h4>1. GDP Value Added vs. Gross Revenue</h4>
+              <h4>1. World output (GDP) vs. total sales</h4>
               <code className="mono">GDP = Sum(Annual Units x Value Added per Unit)</code>
               <p>
-                World GDP is modeled on a reconciled $110.0T value-added baseline (IMF 2024–2025 range $110–120T). Gross sector revenues sum to ~$159.9T (or ~$129T in the 62-sector map) because intermediate stages double-count across value chains.
+                World output is set at $110.0T a year (the IMF puts 2024 to 2025 at $110T to $120T). Total sales add up to about $159.9T (about $129T across the 62 industries here) because a part is counted again each time it is sold on, so sales double-count while GDP does not.
               </p>
             </div>
             <div className="eq-box">
-              <h4>2. Cost Stack, EBIT &amp; Implied EBITDA</h4>
+              <h4>2. Where each $100 of sales goes</h4>
               <code className="mono">EBIT % = Gross Margin % - OpEx %; EBITDA % = EBIT % + Sector D&amp;A %</code>
               <p>
-                Benchmark COGS, Gross Margin, OpEx, EBIT, and Net Margin come directly from Mohammed KM&apos;s 62-sector map and value-chain dossiers. Implied EBITDA adds capital-intensity-calibrated D&amp;A to EBIT; FY2025/26 verified leader figures (NVIDIA, TSMC, Apple, Walmart, Saudi Aramco, ExxonMobil, Shell, Tesla, BYD, UNH, Deloitte/PwC/EY) are tagged FY25.
+                Cost of making it (COGS), running costs (OpEx), operating profit (EBIT) and final profit (net margin) come from a 62-industry benchmark map. EBITDA adds back wear on equipment (depreciation and amortisation, D&amp;A), sized to how equipment-heavy the industry is. Company figures checked against 2025 reports (NVIDIA, TSMC, Apple, Walmart, Saudi Aramco, ExxonMobil, Shell, Tesla, BYD, UNH, Deloitte/PwC/EY) are tagged FY25.
               </p>
             </div>
             <div className="eq-box">
-              <h4>3. Macro Shock &amp; Fleet Capacity Math</h4>
+              <h4>3. How shocks and shipping delays are worked out</h4>
               <code className="mono">Fleet Needed = Voyages x Round-Trip Days / 365</code>
               <p>
-                Oil shocks pass through fuel-heavy transport, chemicals, agriculture, and upstream E&amp;P. Rate shocks shift net interest margins in banking (with non-linear credit stress above 7.0%) while compressing capital-heavy real estate, utilities, and telecom. Chokepoint delays tighten effective ocean fleet capacity and inflate the 5-stage $10-to-$100 supply-chain markup stack.
+                Dearer oil hurts fuel-heavy transport, chemicals and farming and helps oil and gas producers. Higher rates widen what banks earn on loans (until unpaid loans rise above 7%) and squeeze loan-heavy property, utilities and telecom. Longer sea trips tie up ships, so more ships are needed for the same cargo, and each step from $10 raw material to $100 shop price gets dearer.
               </p>
             </div>
           </div>

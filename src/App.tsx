@@ -42,10 +42,10 @@ export function App() {
     <div className="page-shell">
       <header className="site-header">
         <div className="header-main">
-          <span className="kicker">Interactive Macro Atlas</span>
+          <span className="kicker">Interactive world economy map</span>
           <h1>World Economy &amp; Industry Value-Chain Explorer</h1>
           <p className="header-desc">
-            Inspect the $110T global economy across 12 macro sectors and 50+ benchmarked subsectors, trace five-stage value chains, and stress-test live oil, interest-rate, and shipping shocks.
+            See where the world&apos;s $110 trillion a year of output comes from, which industries keep the most profit, and what happens to those profits when oil, interest rates or shipping routes suddenly change.
           </p>
         </div>
         <div className="header-actions">
@@ -55,40 +55,61 @@ export function App() {
         </div>
       </header>
 
+      <section className="story-card" aria-label="How to read this page">
+        <div className="story-beat">
+          <span className="story-tag">The problem</span>
+          <p>
+            News says &quot;oil is up&quot; or &quot;rates are up&quot;, but it is hard to see who actually wins or loses money. This page makes that visible, industry by industry.
+          </p>
+        </div>
+        <div className="story-beat">
+          <span className="story-tag">How it works</span>
+          <p>
+            Each of 12 industries carries real profit benchmarks plus a sensitivity: how many points of profit margin it gains or loses per $10 of oil, per 1% of interest rate and per 5 days of shipping delay. Move a slider and every number is recalculated in your browser.
+          </p>
+        </div>
+        <div className="story-beat">
+          <span className="story-tag">Try this first</span>
+          <p>
+            In the shock simulator below, drag <strong>Crude oil price</strong> to $120. Energy &amp; Mining gains about 11 points of margin, Transport &amp; Freight loses about 6, and the world&apos;s yearly profit pool falls by about $1 trillion.
+          </p>
+        </div>
+      </section>
+
       {/* Live Headline KPI Strip */}
       <section className="kpi-strip" aria-label="Global Economy Summary">
         <div className="kpi-card">
-          <span className="metric-label">Global GDP (Value Added)</span>
+          <span className="metric-label">World output a year (GDP)</span>
           <strong className="kpi-num mono">${GLOBAL_GDP_BASELINE_T.toFixed(1)}T</strong>
-          <span className="kpi-sub">64% Services &bull; 32% Industry &bull; 4% Primary</span>
+          <span className="kpi-sub">64% services, 32% industry, 4% farming and mining</span>
         </div>
         <div className="kpi-card">
-          <span className="metric-label">Tracked Gross Revenue</span>
+          <span className="metric-label">Total sales, all industries</span>
           <strong className="kpi-num mono">${(summary.totalRevenueB / 1000).toFixed(1)}T</strong>
-          <span className="kpi-sub">Gross output across value-chain stages</span>
+          <span className="kpi-sub">Bigger than GDP because parts are sold several times on the way to you</span>
         </div>
         <div className="kpi-card">
-          <span className="metric-label">Live Global Profit Pool</span>
+          <span className="metric-label">World profit pool (after all costs and tax)</span>
           <strong className="kpi-num mono">
             ${summary.shockedProfitPoolT.toFixed(2)}T
           </strong>
           <span className="kpi-sub mono">
             {hasActiveShock ? (
               <span className={summary.profitPoolDeltaB >= 0 ? 'delta-pos' : 'delta-neg'}>
-                {summary.profitPoolDeltaB >= 0 ? '+' : ''}${summary.profitPoolDeltaB.toFixed(0)}B vs base
+                {summary.profitPoolDeltaB >= 0 ? '+' : '-'}${Math.abs(summary.profitPoolDeltaB).toFixed(0)}B vs normal
               </span>
             ) : (
-              `Base $${summary.baselineProfitPoolT.toFixed(2)}T net earnings`
+              `Normal conditions, per year`
             )}
           </span>
         </div>
         <div className="kpi-card">
-          <span className="metric-label">Blended Net Margin</span>
+          <span className="metric-label">Profit kept per $100 of sales (net margin)</span>
           <strong className="kpi-num mono">{summary.shockedBlendedNetPct.toFixed(2)}%</strong>
           <span className="kpi-sub mono">
             {hasActiveShock
-              ? `Top gain: ${summary.biggestWinner.sector.shortName}`
-              : `Base ${summary.baselineBlendedNetPct.toFixed(2)}% across all sectors`}
+              ? `Biggest winner: ${summary.biggestWinner.sector.shortName}`
+              : `Normal: ${summary.baselineBlendedNetPct.toFixed(2)}%, all industries`}
           </span>
         </div>
       </section>
@@ -125,7 +146,7 @@ export function App() {
 
       <footer className="site-footer">
         <span>World Economy &amp; Industry Value-Chain Explorer &mdash; Mohammed KM</span>
-        <span>100% client-side simulation grounded in verified sector benchmarks &amp; UNCTAD freight math</span>
+        <span>Runs entirely in your browser, using published industry benchmarks and UN shipping data (UNCTAD)</span>
       </footer>
     </div>
   );

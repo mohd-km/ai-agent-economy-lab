@@ -25,32 +25,32 @@ export interface ShockPreset {
 export const SHOCK_PRESETS: ShockPreset[] = [
   {
     id: 'baseline',
-    label: 'Baseline',
-    note: '$75 oil, 4.5% rate, normal canals',
+    label: 'Normal times',
+    note: '$75 oil, 4.5% rate, open sea routes',
     params: { oilPriceUsd: 75, policyRatePct: 4.5, shippingDelayDays: 0 },
   },
   {
     id: 'red-sea',
-    label: 'Suez / Red Sea Reroute',
-    note: '+16d Cape detour, $92 oil',
+    label: 'Red Sea closed, ships go round Africa',
+    note: '+16 days at sea, $92 oil',
     params: { oilPriceUsd: 92, policyRatePct: 4.75, shippingDelayDays: 16 },
   },
   {
     id: 'oil-rate-spike',
-    label: '2022 Energy & Rate Spike',
-    note: '$118 oil, 6.25% rate, +6d delay',
+    label: '2022 energy and interest-rate spike',
+    note: '$118 oil, 6.25% rate, +6 days at sea',
     params: { oilPriceUsd: 118, policyRatePct: 6.25, shippingDelayDays: 6 },
   },
   {
     id: 'stagflation',
-    label: 'Severe Stagflation',
-    note: '$145 oil, 8.0% rate, +22d delay',
+    label: 'Stagflation: prices soar, growth stalls',
+    note: '$145 oil, 8.0% rate, +22 days at sea',
     params: { oilPriceUsd: 145, policyRatePct: 8.0, shippingDelayDays: 22 },
   },
   {
     id: 'easing',
-    label: 'Cheap Energy & Rate Cut',
-    note: '$55 oil, 2.25% rate, 0d delay',
+    label: 'Cheap energy and rate cuts',
+    note: '$55 oil, 2.25% rate, no delays',
     params: { oilPriceUsd: 55, policyRatePct: 2.25, shippingDelayDays: 0 },
   },
 ];
