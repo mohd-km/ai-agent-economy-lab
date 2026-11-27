@@ -42,7 +42,7 @@ export function App() {
     <div className="page-shell">
       <header className="site-header">
         <div className="header-main">
-          <span className="kicker">Interactive Macro Atlas &bull; Mohammed KM</span>
+          <span className="kicker">Interactive Macro Atlas</span>
           <h1>World Economy &amp; Industry Value-Chain Explorer</h1>
           <p className="header-desc">
             Inspect the $110T global economy across 12 macro sectors and 50+ benchmarked subsectors, trace five-stage value chains, and stress-test live oil, interest-rate, and shipping shocks.
