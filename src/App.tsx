@@ -59,7 +59,7 @@ export function App() {
         <div className="story-beat">
           <span className="story-tag">The problem</span>
           <p>
-            News says &quot;oil is up&quot; or &quot;rates are up&quot;, but it is hard to see who actually wins or loses money. This page makes that visible, industry by industry.
+            News says &quot;oil is up&quot; or &quot;rates are up&quot;, but it rarely says who wins or loses money. This page shows it, industry by industry.
           </p>
         </div>
         <div className="story-beat">
@@ -145,7 +145,7 @@ export function App() {
       </main>
 
       <footer className="site-footer">
-        <span>World Economy &amp; Industry Value-Chain Explorer &mdash; Mohammed KM</span>
+        <span>World Economy &amp; Industry Value-Chain Explorer · Mohammed KM</span>
         <span>Runs entirely in your browser, using published industry benchmarks and UN shipping data (UNCTAD)</span>
       </footer>
     </div>

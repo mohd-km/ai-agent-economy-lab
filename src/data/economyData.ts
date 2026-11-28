@@ -113,7 +113,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Buildings 40-60 yr; heavy rigs 15 yr (18M active base)',
     valueGrowthPct: 4.5,
     volumeGrowthPct: 2.0,
-    summary: 'Housing (leased plus imputed rent) is the largest single industry in every rich economy; construction is thin-margin and rate-sensitive.',
+    summary: 'Housing (rent paid, plus the rent owners would pay themselves, called imputed rent) is the largest single industry in every rich economy. Construction runs on thin margins and moves with interest rates.',
     sensitivities: {
       oilPer10Usd: -0.25,
       ratePer100Bps: -1.45,
@@ -182,7 +182,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Fast inventory turns; store leases & warehouse automation',
     valueGrowthPct: 5.1,
     volumeGrowthPct: 2.2,
-    summary: 'Largest absolute profit pools in the world economy: FMCG ($1.30T) and offline retail ($1.13T) out-earn high-margin software niches.',
+    summary: 'The biggest profit pools in absolute terms. Everyday consumer goods (FMCG, $1.30T) and offline retail ($1.13T) earn more in total than high-margin software niches.',
     sensitivities: {
       oilPer10Usd: -0.35,
       ratePer100Bps: -0.45,
@@ -323,7 +323,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Defence airframes 30+ yr; campuses & civil systems 25-50 yr',
     valueGrowthPct: 6.4,
     volumeGrowthPct: 3.2,
-    summary: 'Civil administration ($5.32T value added), public education ($4.20T) and defence ($2.10T) anchor sovereign demand; commercial space grows at +16% YoY.',
+    summary: 'Civil administration ($5.32T value added), public education ($4.20T) and defence ($2.10T) make up the core of government demand. Commercial space grows at +16% a year.',
     sensitivities: {
       oilPer10Usd: -0.1,
       ratePer100Bps: -0.35,
@@ -464,7 +464,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Industrial robots 7-12 yr (14% repl.); chemical crackers 25-35 yr',
     valueGrowthPct: 4.8,
     volumeGrowthPct: 2.3,
-    summary: 'Industrial backbone spanning petrochemicals ($4.2T), food manufacturing ($9.8T), packaging ($1.1T) and factory automation ($720B).',
+    summary: 'The industrial base: food manufacturing ($9.8T), petrochemicals ($4.2T), packaging ($1.1T) and factory automation ($720B).',
     sensitivities: {
       oilPer10Usd: -0.95,
       ratePer100Bps: -0.55,
@@ -569,7 +569,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Hospitals capital-heavy (4% net); patented pharma & biotech asset-light (18-22% net)',
     valueGrowthPct: 5.2,
     volumeGrowthPct: 2.4,
-    summary: 'Hospitals represent $10.2T of gross spend at 4% net margin, while patented pharma ($1.6T) captures 22% net margin and $352B in profit.',
+    summary: 'Hospitals take $10.2T of gross spend at a 4% net margin. Patented drugs ($1.6T) keep 22% net, which is $352B of profit.',
     sensitivities: {
       oilPer10Usd: -0.05,
       ratePer100Bps: -0.3,
@@ -692,7 +692,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: '1.5B cars (12-20 yr), 55k ships (25-30 yr), 30k airliners (20-25 yr)',
     valueGrowthPct: 5.0,
     volumeGrowthPct: 2.6,
-    summary: 'Moves ~130-140T tonne-km/yr; road dominates revenue ($4.8T) while ocean carries ~90-120T tkm at $0.02/tkm. Thin 4-7% net margins.',
+    summary: 'Moves about 130 to 140 trillion tonne-km a year. Road earns the most ($4.8T of revenue), while ocean shipping carries about 90 to 120 trillion tonne-km at $0.02 each. Net margins are thin, 4 to 7%.',
     sensitivities: {
       oilPer10Usd: -1.25,
       ratePer100Bps: -0.65,
@@ -815,7 +815,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Capital-regulated balance sheets ($181T global bank credit; $158T of assets under management)',
     valueGrowthPct: 5.7,
     volumeGrowthPct: 2.9,
-    summary: 'Built on $181T of global bank credit (39% corporates, 31% households) and $158T of assets under management. Payment networks (Visa 54% net) capture peak margins.',
+    summary: 'Sits on $181T of global bank credit (39% lent to companies, 31% to households) and $158T of assets under management. Payment networks keep the highest margins (Visa 54% net).',
     sensitivities: {
       oilPer10Usd: -0.08,
       ratePer100Bps: 0.95,
@@ -938,7 +938,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Grids, pipelines & mines 30-50 yr; 8-12% revenue spent on debt/royalties/capex',
     valueGrowthPct: 3.4,
     volumeGrowthPct: 2.4,
-    summary: 'Oil & gas ($5.1T) generates $663B net earnings and benefits directly from oil price spikes, while renewables and grids carry heavy rate-sensitive capex.',
+    summary: 'Oil & gas ($5.1T) earns $663B net and gains directly when the oil price spikes. Renewables and grids need heavy up-front spending (capex), so higher interest rates hurt them.',
     sensitivities: {
       oilPer10Usd: 2.4,
       ratePer100Bps: -0.85,
@@ -1043,7 +1043,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Servers 4-6 yr (15.8% repl.); phones 2-4 yr (16.4% repl.); 5G/fibre 12% capex drag',
     valueGrowthPct: 11.2,
     volumeGrowthPct: 6.9,
-    summary: 'Fastest-growing macro engine: AI and machine learning (+38%), AI servers (+22%), Cloud (+19%), and Semis (+14%). Platform & silicon leaders capture 45-56% net margins.',
+    summary: 'The fastest-growing part of the economy: AI and machine learning (+38%), AI servers (+22%), cloud (+19%) and chips (+14%). Platform and silicon leaders keep 45 to 56% net margins.',
     sensitivities: {
       oilPer10Usd: -0.1,
       ratePer100Bps: -0.75,
@@ -1202,7 +1202,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Human-capital partnerships (legal/audit) vs. landfill/fleet assets (waste)',
     valueGrowthPct: 5.7,
     volumeGrowthPct: 2.6,
-    summary: 'Legal services (26% net) and management consulting (20% net) sit at the top of the global margin league; staffing (5%) is a pass-through.',
+    summary: 'Legal services (26% net) and management consulting (20% net) top the global margin table. Staffing (5%) mostly passes wages straight through.',
     sensitivities: {
       oilPer10Usd: -0.15,
       ratePer100Bps: -0.25,
@@ -1343,7 +1343,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Arable land, tractors (3.6M units/yr), cold-chain & grain elevators',
     valueGrowthPct: 3.4,
     volumeGrowthPct: 1.5,
-    summary: 'Around 4% of world GDP ($5.0T farm-gate). Grain trading runs on 2.8-3.0% net margins while seeds/agrochemicals (15%) and machinery (11%) capture value.',
+    summary: 'Around 4% of world GDP ($5.0T at the farm gate). Grain trading runs on 2.8 to 3.0% net margins, while seeds and agrochemicals (15%) and farm machinery (11%) keep more of the value.',
     sensitivities: {
       oilPer10Usd: -0.75,
       ratePer100Bps: -0.45,
@@ -1448,7 +1448,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Asset-heavy real estate owners vs. asset-light franchisors & OTAs (24-35% net)',
     valueGrowthPct: 5.7,
     volumeGrowthPct: 2.6,
-    summary: 'Franchise and booking platforms (Airbnb 35%, McDonald\'s 33%, Booking 29%) extract high margins while operating restaurants average 6%.',
+    summary: 'Franchise and booking platforms keep high margins (Airbnb 35%, McDonald\'s 33%, Booking 29%), while the restaurants doing the cooking average 6%.',
     sensitivities: {
       oilPer10Usd: -0.45,
       ratePer100Bps: -0.7,
@@ -1587,7 +1587,7 @@ export const COUNTRY_PROFILES: CountryProfile[] = [
 export const FREIGHT_MODES: FreightModeRow[] = [
   { mode: 'Road (full and part truckloads)', tonnes: '48.0B t-shipments', avgHaulKm: '500 km', tonneKmT: '24.0T', yieldPerTkm: '$0.20', marketT: 4.8, netMarginPct: 4.0, directCostPct: 78 },
   { mode: 'Ocean Shipping', tonnes: '12.5B t', avgHaulKm: '9,700 km (UNCTAD)', tonneKmT: '~120T', yieldPerTkm: '$0.02', marketT: 1.8, netMarginPct: 7.0, directCostPct: 70 },
-  { mode: '3PL Contract Logistics', tonnes: '1.5B m2', avgHaulKm: '—', tonneKmT: '—', yieldPerTkm: '$1,000/m2/yr', marketT: 1.5, netMarginPct: 6.0, directCostPct: 68 },
+  { mode: '3PL Contract Logistics', tonnes: '1.5B m2', avgHaulKm: 'n/a', tonneKmT: 'n/a', yieldPerTkm: '$1,000/m2/yr', marketT: 1.5, netMarginPct: 6.0, directCostPct: 68 },
   { mode: 'Courier & Parcel', tonnes: '161B+ parcels', avgHaulKm: '150 km', tonneKmT: '0.05T eq.', yieldPerTkm: '$3-$5/parcel', marketT: 1.1, netMarginPct: 5.0, directCostPct: 75 },
   { mode: 'Rail & Intermodal', tonnes: '10.0B t', avgHaulKm: '1,600 km', tonneKmT: '16.0T', yieldPerTkm: '$0.05', marketT: 0.8, netMarginPct: 6.0, directCostPct: 72 },
   { mode: 'Air Cargo & Express', tonnes: '65M t', avgHaulKm: '4,000 km', tonneKmT: '0.26T', yieldPerTkm: '$0.50-$2.31', marketT: 0.6, netMarginPct: 4.0, directCostPct: 76 },
