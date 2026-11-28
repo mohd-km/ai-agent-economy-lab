@@ -160,7 +160,7 @@ export const MACRO_SECTORS: MacroSector[] = [
         netMarginPct: 18.0,
         topLeaders: [
           { name: 'CBRE Group', revenueB: 31.9, grossMarginPct: 22.0, netMarginPct: 5.0 },
-          { name: 'Prologis (Industrial REIT)', revenueB: 8.2, grossMarginPct: 72.0, netMarginPct: 38.0 },
+          { name: 'Prologis (warehouse real estate investment trust)', revenueB: 8.2, grossMarginPct: 72.0, netMarginPct: 38.0 },
           { name: 'Jones Lang LaSalle (JLL)', revenueB: 20.8, grossMarginPct: 21.0, netMarginPct: 2.8 },
         ],
       },
@@ -323,7 +323,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Defence airframes 30+ yr; campuses & civil systems 25-50 yr',
     valueGrowthPct: 6.4,
     volumeGrowthPct: 3.2,
-    summary: 'Civil administration ($5.32T VA), public education ($4.20T VA) and defence ($2.10T VA) anchor sovereign demand; commercial space grows at +16% YoY.',
+    summary: 'Civil administration ($5.32T value added), public education ($4.20T) and defence ($2.10T) anchor sovereign demand; commercial space grows at +16% YoY.',
     sensitivities: {
       oilPer10Usd: -0.1,
       ratePer100Bps: -0.35,
@@ -335,7 +335,7 @@ export const MACRO_SECTORS: MacroSector[] = [
       { stage: 'R&D & Curriculum / Systems', role: 'Aerospace primes, labs, content IP', shareOfPricePct: 26, stageMarginPct: 14, bottleneck: 'Multi-year certification cycles' },
       { stage: 'Core Delivery & Primes', role: 'Universities, defence assembly, agencies', shareOfPricePct: 34, stageMarginPct: 7, bottleneck: 'Skilled talent & cost-plus caps' },
       { stage: 'Digital & Satellite Platforms', role: 'EdTech, orbital launch, academic pubs', shareOfPricePct: 10, stageMarginPct: 16, bottleneck: 'Launch cadence & institutional sales' },
-      { stage: 'Sustainment & Lifecycle', role: 'MRO, alumni/credentialing, upgrades', shareOfPricePct: 8, stageMarginPct: 12, bottleneck: 'Parts supply & long-tail support' },
+      { stage: 'Sustainment & Lifecycle', role: 'Maintenance and repair, alumni/credentialing, upgrades', shareOfPricePct: 8, stageMarginPct: 12, bottleneck: 'Parts supply & long-tail support' },
     ],
     subsectors: [
       {
@@ -579,7 +579,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     valueChain: [
       { stage: 'Discovery & Clinical R&D', role: 'Biotech trials, molecule patents', shareOfPricePct: 20, stageMarginPct: 22, bottleneck: '10-yr trial failure risk' },
       { stage: 'API & Device Manufacturing', role: 'Sterile fill-finish, med-tech hardware', shareOfPricePct: 14, stageMarginPct: 16, bottleneck: 'Cold-chain & FDA/EMA compliance' },
-      { stage: 'Payers & PBMs / Distribution', role: 'Wholesalers, formulary negotiation', shareOfPricePct: 12, stageMarginPct: 3, bottleneck: 'Reimbursement pricing rules' },
+      { stage: 'Insurers, pharmacy benefit managers & distribution', role: 'Wholesalers, formulary negotiation', shareOfPricePct: 12, stageMarginPct: 3, bottleneck: 'Reimbursement pricing rules' },
       { stage: 'Clinical Care Delivery', role: 'Inpatient beds, surgery, outpatient', shareOfPricePct: 46, stageMarginPct: 4, bottleneck: 'Clinical labour (72% direct cost)' },
       { stage: 'Diagnostics & Digital Health', role: 'Imaging labs, telehealth, EHR', shareOfPricePct: 8, stageMarginPct: 13, bottleneck: 'Interoperability & billing admin' },
     ],
@@ -700,9 +700,9 @@ export const MACRO_SECTORS: MacroSector[] = [
       revRateElasticity: -1.0,
     },
     valueChain: [
-      { stage: 'Parts & Batteries (Tier 1/2)', role: 'Powertrains, 1,200 GWh EV cells, avionics', shareOfPricePct: 32, stageMarginPct: 8, bottleneck: 'Battery chemistry & alloy supply' },
+      { stage: 'Parts & Batteries (first- and second-tier suppliers)', role: 'Powertrains, 1,200 GWh EV cells, avionics', shareOfPricePct: 32, stageMarginPct: 8, bottleneck: 'Battery chemistry & alloy supply' },
       { stage: 'Vehicle / Fleet OEMs', role: '75M cars, 15M trucks, 1,800 ships/yr', shareOfPricePct: 24, stageMarginPct: 5, bottleneck: 'Factory capex & EV price wars' },
-      { stage: 'Long-Haul Ocean & Rail', role: 'ULCVs, VLCCs, bulk carriers, intermodal', shareOfPricePct: 16, stageMarginPct: 7, bottleneck: 'Suez/Panama chokepoints & bunker fuel' },
+      { stage: 'Long-Haul Ocean & Rail', role: 'Giant container ships, supertankers, bulk carriers, ship-to-rail links', shareOfPricePct: 16, stageMarginPct: 7, bottleneck: 'Suez/Panama chokepoints & bunker fuel' },
       { stage: 'Road Trucking & 3PL', role: '48B ton-shipments, 1.5B m2 warehouses', shareOfPricePct: 18, stageMarginPct: 4.5, bottleneck: 'Fuel & driver wages (76-78% COGS)' },
       { stage: 'Airlines & Last-Mile Express', role: '4.2B trips, 161B+ annual parcels', shareOfPricePct: 10, stageMarginPct: 4.2, bottleneck: 'Jet fuel & drop-density economics' },
     ],
@@ -812,10 +812,10 @@ export const MACRO_SECTORS: MacroSector[] = [
     netMarginPct: 13.7,
     financingCapexPct: 3.7,
     capitalIntensity: 'Low',
-    assetLifespanNote: 'Capital-regulated balance sheets ($181T global bank credit; $158T AUM)',
+    assetLifespanNote: 'Capital-regulated balance sheets ($181T global bank credit; $158T of assets under management)',
     valueGrowthPct: 5.7,
     volumeGrowthPct: 2.9,
-    summary: 'Built on $181T of global bank credit (39% corporates, 31% households) and $158T AUM. Payment networks (Visa 54% net) capture peak margins.',
+    summary: 'Built on $181T of global bank credit (39% corporates, 31% households) and $158T of assets under management. Payment networks (Visa 54% net) capture peak margins.',
     sensitivities: {
       oilPer10Usd: -0.08,
       ratePer100Bps: 0.95,
@@ -826,8 +826,8 @@ export const MACRO_SECTORS: MacroSector[] = [
       { stage: 'Deposits & Capital Base', role: 'Household savings, central bank liquidity', shareOfPricePct: 18, stageMarginPct: 10, bottleneck: 'Deposit beta & funding costs' },
       { stage: 'Credit Origination & Underwriting', role: 'Mortgages, C&I loans, 3.6B policies', shareOfPricePct: 34, stageMarginPct: 14, bottleneck: 'Default cycles & claims inflation' },
       { stage: 'Payment Rails & Clearing', role: '$22T card volume, cross-border FX', shareOfPricePct: 14, stageMarginPct: 45, bottleneck: 'Network effects (near-zero marginal cost)' },
-      { stage: 'Asset & Wealth Management', role: '$158T AUM at ~1.0% blended fee', shareOfPricePct: 20, stageMarginPct: 27, bottleneck: 'Passive ETF fee compression' },
-      { stage: 'Advisory & Capital Markets', role: 'M&A, DCM/ECM, FICC/equities trading', shareOfPricePct: 14, stageMarginPct: 20, bottleneck: 'Market volatility & deal confidence' },
+      { stage: 'Asset & Wealth Management', role: '$158T of assets under management at ~1.0% average fee', shareOfPricePct: 20, stageMarginPct: 27, bottleneck: 'Passive ETF fee compression' },
+      { stage: 'Advisory & Capital Markets', role: 'Mergers and acquisitions advice, raising debt and shares, bond, currency, commodity and stock trading', shareOfPricePct: 14, stageMarginPct: 20, bottleneck: 'Market volatility & deal confidence' },
     ],
     subsectors: [
       {
@@ -850,7 +850,7 @@ export const MACRO_SECTORS: MacroSector[] = [
       },
       {
         code: '9.3',
-        name: 'Insurance (P&C & Life)',
+        name: 'Insurance (property, casualty & life)',
         revenueB: 7200,
         volGrowthPct: 2.0,
         valGrowthPct: 5.0,
@@ -947,10 +947,10 @@ export const MACRO_SECTORS: MacroSector[] = [
     },
     valueChain: [
       { stage: 'Upstream Exploration & Mining', role: '36.5B BOE crude/gas, 4.4B t ore', shareOfPricePct: 36, stageMarginPct: 24, bottleneck: 'Basin geology & depletion' },
-      { stage: 'Midstream & Sea Tankers', role: 'Pipelines, VLCCs (~2M bbl), LNG', shareOfPricePct: 12, stageMarginPct: 14, bottleneck: 'Strait/canal transit & liquefaction' },
+      { stage: 'Midstream & Sea Tankers', role: 'Pipelines, supertankers (~2M barrels each), liquefied natural gas (LNG) carriers', shareOfPricePct: 12, stageMarginPct: 14, bottleneck: 'Strait/canal transit & liquefaction' },
       { stage: 'Refining & Smelting', role: '4.6B t refined fuels, metals', shareOfPricePct: 20, stageMarginPct: 9, bottleneck: 'Crack spreads & high-heat furnaces' },
       { stage: 'Power Generation (Thermal/Solar)', role: '34.6T kWh global generation', shareOfPricePct: 18, stageMarginPct: 11, bottleneck: 'Intermittency & 320 GWh BESS' },
-      { stage: 'Grid Transmission & Retail', role: 'Substations, transformers, billing', shareOfPricePct: 14, stageMarginPct: 8, bottleneck: 'Regulated ROE & grid queue' },
+      { stage: 'Grid Transmission & Retail', role: 'Substations, transformers, billing', shareOfPricePct: 14, stageMarginPct: 8, bottleneck: 'Regulator-capped return on equity & grid connection queue' },
     ],
     subsectors: [
       {
@@ -1043,7 +1043,7 @@ export const MACRO_SECTORS: MacroSector[] = [
     assetLifespanNote: 'Servers 4-6 yr (15.8% repl.); phones 2-4 yr (16.4% repl.); 5G/fibre 12% capex drag',
     valueGrowthPct: 11.2,
     volumeGrowthPct: 6.9,
-    summary: 'Fastest-growing macro engine: AI/ML (+38%), AI servers (+22%), Cloud (+19%), and Semis (+14%). Platform & silicon leaders capture 45-56% net margins.',
+    summary: 'Fastest-growing macro engine: AI and machine learning (+38%), AI servers (+22%), Cloud (+19%), and Semis (+14%). Platform & silicon leaders capture 45-56% net margins.',
     sensitivities: {
       oilPer10Usd: -0.1,
       ratePer100Bps: -0.75,
@@ -1577,7 +1577,7 @@ export const COUNTRY_PROFILES: CountryProfile[] = [
     topSectors: [
       { name: 'Crops, Grains & Horticulture', sharePct: 11.5, valueT: 0.46, unitFormula: '140M ha x $3,285' },
       { name: 'Factory Manufacturing', sharePct: 10.5, valueT: 0.42, unitFormula: 'Electronics, textiles, steel' },
-      { name: 'IT Services, SaaS & BPM', sharePct: 9.5, valueT: 0.38, unitFormula: '5.8M professionals + GCCs' },
+      { name: 'IT Services, software subscriptions & business process outsourcing', sharePct: 9.5, valueT: 0.38, unitFormula: '5.8M professionals + GCCs' },
       { name: 'Wholesale & Retail Trade', sharePct: 9.0, valueT: 0.36, unitFormula: '36M entities x $10k' },
       { name: 'Civil Construction & Infra', sharePct: 8.0, valueT: 0.32, unitFormula: '1.07B m2 x $300' },
     ],
@@ -1585,7 +1585,7 @@ export const COUNTRY_PROFILES: CountryProfile[] = [
 ];
 
 export const FREIGHT_MODES: FreightModeRow[] = [
-  { mode: 'Road (FTL + LTL)', tonnes: '48.0B t-shipments', avgHaulKm: '500 km', tonneKmT: '24.0T', yieldPerTkm: '$0.20', marketT: 4.8, netMarginPct: 4.0, directCostPct: 78 },
+  { mode: 'Road (full and part truckloads)', tonnes: '48.0B t-shipments', avgHaulKm: '500 km', tonneKmT: '24.0T', yieldPerTkm: '$0.20', marketT: 4.8, netMarginPct: 4.0, directCostPct: 78 },
   { mode: 'Ocean Shipping', tonnes: '12.5B t', avgHaulKm: '9,700 km (UNCTAD)', tonneKmT: '~120T', yieldPerTkm: '$0.02', marketT: 1.8, netMarginPct: 7.0, directCostPct: 70 },
   { mode: '3PL Contract Logistics', tonnes: '1.5B m2', avgHaulKm: '—', tonneKmT: '—', yieldPerTkm: '$1,000/m2/yr', marketT: 1.5, netMarginPct: 6.0, directCostPct: 68 },
   { mode: 'Courier & Parcel', tonnes: '161B+ parcels', avgHaulKm: '150 km', tonneKmT: '0.05T eq.', yieldPerTkm: '$3-$5/parcel', marketT: 1.1, netMarginPct: 5.0, directCostPct: 75 },

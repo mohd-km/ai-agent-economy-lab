@@ -89,14 +89,14 @@ export function MethodologyDrawers() {
               <h4>1. World output (GDP) vs. total sales</h4>
               <code className="mono">GDP = Sum(Annual Units x Value Added per Unit)</code>
               <p>
-                World output is set at $110.0T a year (the IMF puts 2024 to 2025 at $110T to $120T). Total sales add up to about $159.9T (about $129T across the 62 industries here) because a part is counted again each time it is sold on, so sales double-count while GDP does not.
+                World output is set at $110.0T a year (the International Monetary Fund puts 2024 to 2025 at $110T to $120T). Total sales add up to about $159.9T (about $129T across the 62 industries here) because a part is counted again each time it is sold on, so sales double-count while GDP does not.
               </p>
             </div>
             <div className="eq-box">
               <h4>2. Where each $100 of sales goes</h4>
               <code className="mono">EBIT % = Gross Margin % - OpEx %; EBITDA % = EBIT % + Sector D&amp;A %</code>
               <p>
-                Cost of making it (COGS), running costs (OpEx), operating profit (EBIT) and final profit (net margin) come from a 62-industry benchmark map. EBITDA adds back wear on equipment (depreciation and amortisation, D&amp;A), sized to how equipment-heavy the industry is. Company figures checked against 2025 reports (NVIDIA, TSMC, Apple, Walmart, Saudi Aramco, ExxonMobil, Shell, Tesla, BYD, UNH, Deloitte/PwC/EY) are tagged FY25.
+                Cost of making it (COGS), running costs (OpEx), operating profit (EBIT) and final profit (net margin) come from a 62-industry benchmark map. EBITDA adds back wear on equipment (depreciation and amortisation, D&amp;A), sized to how equipment-heavy the industry is. Company figures checked against 2025 reports (NVIDIA, TSMC, Apple, Walmart, Saudi Aramco, ExxonMobil, Shell, Tesla, BYD, UnitedHealth, Deloitte/PwC/EY) are tagged FY25 (financial year 2025).
               </p>
             </div>
             <div className="eq-box">
